@@ -111,8 +111,8 @@ function updateTimeText() {
   const seconds = now.getSeconds();
   const secondsFormatted = seconds.toString().padStart(2, "0");
 
-  // Determine if seconds are in warning range (> 50)
-  const isWarning = seconds > 50;
+  // Determine if seconds are in warning range (>= 50)
+  const isWarning = seconds >= 50;
   const secondsColor = isWarning
     ? textParams.warningColor
     : textParams.normalColor;
