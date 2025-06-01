@@ -27,8 +27,8 @@ document.body.appendChild(renderer.domElement);
 const textParams = {
   size: 5,
   height: 1,
-  normalColor: 0x0077ff,
-  warningColor: 0xff0000,
+  normalColor: 0x0079ff,
+  warningColor: 0xff0060,
   separatorColor: 0xffffff,
   colonSpacing: 1.2,
   fixedDigitWidth: 3.5, // Fixed width for each digit (adjust based on your font)
@@ -219,6 +219,15 @@ function getWeatherData(latitude, longitude) {
 }
 
 function processWeatherData(data) {
+  const { name, country } = data.location;
+  const { temp_c } = data.current;
+  const weather_info = `📍 Location: ${name}, ${country} <br/>
+  🌡️ Temperature: ${temp_c}°C
+   <br/>
+  ☀️ Weather: ${data.current.condition.text}  
+  `;
+  document.querySelector("#weather").innerHTML = weather_info;
+
   const condition = data.current.condition.text.toLowerCase();
   let final_condition = "";
   if (condition.includes("cloudy")) {
@@ -236,7 +245,7 @@ function processWeatherData(data) {
 // condition: sunny, cloudy, rainy, snowy
 function renderWeather(condition) {
   console.log(condition);
-  initParticles("rainy");
+  initParticles("snowy");
 }
 
 // condition: rainy, snowy
