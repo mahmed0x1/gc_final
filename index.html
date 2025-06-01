@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <title>Digital Watch Three.js</title>
+    <meta charset="utf-8" />
+    <title>Weather Clock</title>
     <style>
-      body { margin: 0; overflow: hidden; }
-      canvas { display: block; }
+      body {
+        margin: 0;
+        overflow: hidden;
+      }
     </style>
+    <!-- CDN (Content Delivery Network)을 사용, importmap 설정 -->
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.159.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.159.0/examples/jsm/"
+        }
+      }
+    </script>
+    <script type="module" src="./main.js"></script>
   </head>
-  <body>
-    <!-- Add Three.js from CDN first -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/loaders/GLTFLoader.js"></script>
-    <!-- Then your main script -->
-    <script src="./main.js"></script>
-  </body>
+  <body></body>
 </html>
